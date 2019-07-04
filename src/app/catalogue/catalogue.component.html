@@ -1,0 +1,12 @@
+<div class="catalogue-section container mt-5">
+    <div *ngFor="let book of books ">
+        <div class="row ml-2">
+            <img [src]="book.book" class="float-right mr-3" height="100rem" width="auto">
+            <h4 class="card-title mt-4">{{book.isbn}}
+                <br><span>By {{book.author}}</span>
+            </h4>
+            <h6 class="mt-2">"{{book.subtitle}}"</h6>
+            <br>
+        </div>
+    </div>
+</div>

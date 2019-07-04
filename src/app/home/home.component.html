@@ -1,0 +1,78 @@
+<!-- Slider Section -->
+<div id="carouselExampleIndicators" class="custom-carousel carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://creativesupply.com/wp-content/uploads/2019/04/Untitled-design.png" class="d-block w-100"
+        alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="https://creativesupply.com/wp-content/uploads/2019/04/Untitled-design-1.png" class="d-block w-100"
+        alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="https://creativesupply.com/wp-content/uploads/2015/04/2x.png" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+<!-- Slider Section End -->
+
+<!-- Popular Products Section -->
+<div class="section-2">
+  <div class="container pb-5">
+    <h1 class="display-4 pt-5">Popular Products</h1>
+    <div class="row">
+      <div *ngFor="let book of books | slice:0:4">
+        <div class="col-sm-4 ">
+          <div class="card shadow-sm mt-3 mr-3 mb-3 ml-3" style="width: 30rem;">
+            <div class="card-body">
+              <div class="row ml-2">
+                <img [src]="book.book" class="book-image float-right mr-3" >
+                <h4 class="card-title mt-4">{{book.title}}
+                  <br><span>By {{book.author}}</span>
+                </h4>
+                <h6 class="mt-2">"{{book.subtitle}}"</h6>
+                <br>
+              </div>
+              <button class="btn btn-success btn-custom mr-1">Add to cart</button>
+              <button class="btn btn-info btn-custom" [routerLink]="['/catalogue/'+book.isbn]">View more details</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Popular Products Section End -->
+
+  <!-- Final Section -->
+  <div class="section-3">
+    <div class="container pb-5">
+      <h1 class="display-4 pt-5 pb-3">Featured Book</h1>
+      <div class="row">
+        <div class="col-md-4">
+          <img class="book-image-2" src="https://raw.githubusercontent.com/getify/You-Dont-Know-JS/master/es6%20%26%20beyond/cover.jpg" height="500rem" width="auto">
+        </div>
+        <div class="ml-5 col-md-4">
+        <div *ngFor="let book of books | slice:5:6">
+          
+            <h1>{{book.title}}</h1>
+            <h3>"{{book.subtitle}}"</h3>
+            <legend>Written by {{book.author}}</legend>
+            <p>{{book.description}}</p>
+            <legend>Published by {{book.publisher}}</legend>
+
+            <button class="btn btn-success btn-custom mr-1">Add to cart</button>
+              <button (click)="onSelect(book)" class="btn btn-info btn-custom">View more details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Final Section End -->
